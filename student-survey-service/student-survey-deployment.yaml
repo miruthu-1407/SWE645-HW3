@@ -1,0 +1,196 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '3'
+    field.cattle.io/publicEndpoints: >-
+      [{"addresses":["172.31.75.140"],"port":30007,"protocol":"TCP","serviceName":"default:student-survey-service","allNodes":true}]
+    objectset.rio.cattle.io/applied: >-
+      H4sIAAAAAAAA/4xSS08bMRD+L3Pe3WQTkn3cokKrqhRQUtpDhdCsPdss+FWPN1FA/u+VaUFIqBEnazwz38OfHwHd8J08D9ZAC+gcT3YlZHA/GAktnJJT9qDJBMhAU0CJAaF9BDTGBgyDNZxK292RCEyh8IMtBIagqBjsZEggYlFTuaAm7xbLJj9pqM6bpp/mjVjKalbOZ7KpIGagsCN1FG6LvIUWqqafUt/Pp11/UvfVbL6ssOsWJ7O+rnpZL+fLsqynlUigBjVBCxxGSSbkPPodHXL52lcaYYcizUnqcVQhbbIjkcR4cmoQyNDOMmBSJIL1qaExiO35i2h07i1Ruowxg0DaKQz0tPfqHdX71p+1CGsCDoY8Q/vzEcjsns5/JjdX688Xn25PV99Wm8vr9Yez2+v1OWSwQzWm/p3sRKsP/Fu1k0lS0CFTXhbC6f09dg/7QZpi5JyQQ14WXnKBGh+swT0XwmqI2TGuzdn6YvX17Jnwo7c6aWYSnsIXOqypT/U9HaCFkck/Qb1EJLtceEruB1QMMR5lu1ptNj8u16fvY3PIvLdeHmO7yWDQ+Cs1td2iwbIqJ2/zaFOMHOB/XytFloGzPvzN6CWyK+sDtPW0nsabeBNjjH8CAAD//y0/j4N+AwAA
+    objectset.rio.cattle.io/id: c58e15e9-b569-49e8-99f0-9c6d72132d97
+  creationTimestamp: '2025-04-11T16:02:46Z'
+  generation: 4
+  labels:
+    objectset.rio.cattle.io/hash: 79f0eff30bf48f72367abb542f87fd863611807c
+  managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:field.cattle.io/publicEndpoints: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:cattle.io/timestamp: {}
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:containers:
+                k:{"name":"student-survey-app"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"SPRING_DATASOURCE_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                    k:{"name":"SPRING_DATASOURCE_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SPRING_DATASOURCE_USERNAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8080,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: agent
+      operation: Update
+      time: '2025-04-16T15:25:24Z'
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: '2025-04-16T15:25:29Z'
+  name: student-survey-deployment
+  namespace: default
+  resourceVersion: '110262'
+  uid: a306dec4-ff62-45f6-b07e-2802b973e561
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: student-survey-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: '2025-04-16T15:25:25Z'
+      creationTimestamp: null
+      labels:
+        app: student-survey-app
+    spec:
+      containers:
+        - env:
+            - name: SPRING_DATASOURCE_URL
+              value: >-
+                jdbc:mysql://database-1.cpmwkabzwidn.us-east-1.rds.amazonaws.com:3306/student_survey_db
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: db-credentials
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: db-credentials
+          image: mohana171/student-survey-app:latest
+          imagePullPolicy: Always
+          name: student-survey-app
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 2
+  conditions:
+    - lastTransitionTime: '2025-04-16T15:06:14Z'
+      lastUpdateTime: '2025-04-16T15:06:14Z'
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: 'True'
+      type: Available
+    - lastTransitionTime: '2025-04-11T16:02:46Z'
+      lastUpdateTime: '2025-04-16T15:25:29Z'
+      message: >-
+        ReplicaSet "student-survey-deployment-69ddf874bf" has successfully
+        progressed.
+      reason: NewReplicaSetAvailable
+      status: 'True'
+      type: Progressing
+  observedGeneration: 4
+  readyReplicas: 2
+  replicas: 2
+  updatedReplicas: 2
