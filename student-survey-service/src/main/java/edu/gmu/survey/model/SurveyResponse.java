@@ -52,10 +52,10 @@ public class SurveyResponse {
 
     @ElementCollection
     private List<String> campusLikes; // Options: students, location, campus, atmosphere, dorm rooms, sports
-    
-    @ElementCollection
-    private List<String> recommendationLikelihood; // Options: Very Likely, Likely, Unlikely
 
-    @ElementCollection
-    private List<String> interestSource; // Options: friends, television, Internet, other
+    @NotBlank(message = "Interest source is required")
+    private String interestSource; // Options: friends, television, Internet, other
+
+    @NotBlank(message = "Recommendation likelihood is required")
+    private String recommendationLikelihood; // Options: Very Likely, Likely, Unlikely
 }
