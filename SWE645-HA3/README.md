@@ -311,7 +311,7 @@ docker pull mohana171/student-survey-app:latest
 ## Kubernetes Deployment via Rancher
 
 ### Access Rancher Dashboard
-1. Open browser and go to: `http://<EC2-Public-IP>:80`
+1. Open browser and go to: `http://54.162.212.78:8080`
 2. Login to Rancher
 
 ### Create Workload (Deployment)
@@ -363,10 +363,10 @@ Once deployment is active and NodePort is exposed, you can access:
 
 ```bash
 # Check backend API response
-http://<EC2-Public-IP>:8080/api/surveys
+http://54.162.212.78:8080/api/surveys
 
 # Open frontend survey form
-http://<EC2-Public-IP>:8080/survey.html
+http://54.162.212.78:8080/survey.html
 ```
 
 ---
